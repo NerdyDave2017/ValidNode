@@ -1,0 +1,17 @@
+ERC20 Token VLD Contract address(Rinkeby testnet) 0x56fbc95ea230c0173c13c9a88a7ee924de804830
+VLDStaking smart Contract address (Rinkeby testnet) 0x36aa545e00a6fbf1d5f6e56c09e572644824cbed
+
+Transfer ownership function would be added to both staking and new ERC20 smart contract when deploying to mainnet
+Staking smart contract would need more functions to implement other protocols
+
+Instructions
+
+1. Dev should copy SDK into src folder
+2. Import functions from the functions folder
+3. Install ethersjs library (npm install ethers or yarn install ethers)
+
+Functions to call
+1. The approve function in VLD.js should be called before staking function
+2. staking function should require amount of VLD to be staked plus 0.5% of the amount for transaction charges
+
+
