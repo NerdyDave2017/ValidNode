@@ -31,6 +31,30 @@ export const stakeVld = async (amount) => {
   return result;
 };
 
+export const claimRewardTokens = async () => {
+  // only an investor can call this function
+  const tx = await contract.functions.claimRewardTokens();
+  const result = await tx.wait();
+  // return the result
+  return result;
+};
+
+export const calculateStakingDuration = async (investorAddress) => {
+  // Function to get duration of of incestor's staking
+  const result = await contract.functions.calculateStakingDuration(
+    investorAddress
+  );
+  return result;
+};
+
+export const calculateInvestorReward = async (investorAddress) => {
+  // Function to get net reward of investor
+  const result = await contract.functions.calculateInvestorReward(
+    investorAddress
+  );
+  return result;
+};
+
 /**
  * @dev The functions bellow are important and should be called after contract deployment
  * @dev These functions can only be called by owner(account that deployed the contract) of the contract
@@ -80,3 +104,27 @@ export const setTransactionChargesWallet = async (walletAddress) => {
   // return the result
   return result;
 };
+
+// Function to set smart contract address
+export const setContractAddress = async (contractAddress) => {
+  // contractAddress is the address of the  staking contract
+  const result = await contract.functions.setContractAddress(contractAddress);
+  // return the result
+  return result;
+};
+
+//  Function to get VLD balance of user
+export const getVldBalance = async (userAddress) => {
+  // userAddress is the address of the user
+  const result = await contract.functions.balance(userAddress);
+  // return the result
+  return result;
+};
+
+/**
+ * functions needed to be written
+ * get user staking duration
+ * get calculated reward for specific period/duration
+ * get user staking status
+ * get user staking amount/balance
+ */

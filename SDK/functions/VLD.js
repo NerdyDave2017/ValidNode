@@ -25,7 +25,7 @@ const contract = new ethers.Contract(VLDAddress, VLD.abi, signer);
 export const approve = async (contractAddress, amount) => {
   // contractAddress is the address of the contract(Staking contract address) to be approved
   // amount is the amount of VLD to be approved
-  const tx = await contract.functions.approve();
+  const tx = await contract.functions.approve(contractAddress, amount);
   const result = await tx.wait();
   // return the result
   return result;
