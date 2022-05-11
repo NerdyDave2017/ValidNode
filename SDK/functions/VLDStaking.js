@@ -121,6 +121,14 @@ export const getVldBalance = async (userAddress) => {
   return result;
 };
 
+// Function to get user node balance
+export const getNodeBalance = async (investorAddress) => {
+  // investorAddress is the address of the investor
+  const result = await contract.investorNodeBalance(investorAddress);
+  // return the result
+  return result;
+};
+
 /**
  * functions needed to be written
  * get user staking duration
